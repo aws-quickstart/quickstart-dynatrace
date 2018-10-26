@@ -244,7 +244,7 @@
                 "2",
                 "3"
             ],
-            "Default": "2",
+            "Default": "3",
             "Description": "Number of Availability Zones to use in the VPC. This must match your subnet settings.",
             "Type": "String"
         },
