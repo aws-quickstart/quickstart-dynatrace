@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "This template is intended to be deployed into an existing VPC. It will create Dynatrace Cluster, in the specified VPC subnets. You need to have a Dynatrace Managed license key to create the stack. **WARNING** This template creates Amazon EC2 instance and related resources. You will be billed for the AWS resources used if you create a stack from this template.",
+    "Description": "This template is intended to be deployed into an existing VPC. It will create Dynatrace Cluster, in the specified VPC subnets. You need to have a Dynatrace Managed license key to create the stack. **WARNING** This template creates Amazon EC2 instance and related resources. You will be billed for the AWS resources used if you create a stack from this template. (qs-1ordscss9)",
     "Metadata": {
         "AWS::CloudFormation::Interface": {
             "ParameterGroups": [
@@ -155,7 +155,7 @@
        "AdminPassword" : {
          "Type": "String",
          "NoEcho" : "true",
-         "Description": "Initial password for the 'admin' user needed for accessing the Dynatrace cluster console UI. Note: This password should be changed afterwards.",
+         "Description": "Initial password for the 'admin' user needed for accessing the Dynatrace cluster console UI.",
          "MinLength" : "8"
        },
         "BastionSecurityGroupID": {
@@ -231,12 +231,8 @@
             "MinValue" : "20",
             "MaxValue" : "16384"
         },
-		"LicenseKey": {
-			"Description": "Dynatrace Managed license key.",
-            "Type": "String"
-        },
 		"KeyPairName": {
-            "Description": "Enter a Public/private key pair. If you do not have one in this region, please create it before continuing.",
+            "Description": "The name of an existing public/private key pair, which allows you to securely connect to your instance after it launches.",
             "Type": "AWS::EC2::KeyPair::KeyName"
         },
         "NumberOfAZs": {
@@ -288,14 +284,14 @@
         "QSS3BucketName": {
             "AllowedPattern": "^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$",
             "ConstraintDescription": "Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).",
-            "Default": "quickstart-dynatrace-dev",
+            "Default": "aws-quickstart",
             "Description": "S3 bucket name for the Quick Start assets. Quick Start bucket name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).",
             "Type": "String"
         },
         "QSS3KeyPrefix": {
             "AllowedPattern": "^[0-9a-zA-Z-/]*$",
             "ConstraintDescription": "Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slash (/).",
-            "Default": "latest/",
+            "Default": "quickstart-dynatrace/",
             "Description": "S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slash (/).",
             "Type": "String"
         },

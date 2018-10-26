@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "This template creates a entire infrastructure for a multi-AZ deployment of Dynatrace Managed, including VPC setup. It will deploy Dynatrace instances into the private subnets in separate Availability Zones.\r\n***NOTE*** You must obtain first obtain Dynatrace Maanged license before you launch this template. See the deployment guide at http://aws.amazon.com/quickstart for details.\r\nThis template creates Amazon EC2 instances and related resources. You will be billed for the AWS resources used if you create a stack from this template.",
+    "Description": "This template creates a entire infrastructure for a multi-AZ deployment of Dynatrace Managed, including VPC setup. It will deploy Dynatrace instances into the private subnets in separate Availability Zones.\r\n***NOTE*** You must obtain first obtain Dynatrace Maanged license before you launch this template. See the deployment guide at http://aws.amazon.com/quickstart for details.\r\nThis template creates Amazon EC2 instances and related resources. You will be billed for the AWS resources used if you create a stack from this template. (qs-1ordscsse)",
     "Metadata": {
         "AWS::CloudFormation::Interface": {
             "ParameterGroups": [
@@ -251,7 +251,7 @@
             ]
         },
         "KeyPairName": {
-            "Description": "Public/private key pairs allow you to securely connect to your instance after it launches.",
+            "Description": "The name of an existing public/private key pair, which allows you to securely connect to your instance after it launches.",
             "Type": "AWS::EC2::KeyPair::KeyName"
         },
         "NumberOfAZs": {

@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "This template is intended to be deployed into existing private subnet in VPC, with ELB, security groups and parameters already preconfigured for Dynatrace Managed. It is deploying a single Dynatrace Managed node. **WARNING** This template creates Amazon EC2 instance and related resources. You will be billed for the AWS resources used if you create a stack from this template.",
+    "Description": "This template is intended to be deployed into existing private subnet in VPC, with ELB, security groups and parameters already preconfigured for Dynatrace Managed. It is deploying a single Dynatrace Managed node. **WARNING** This template creates Amazon EC2 instance and related resources. You will be billed for the AWS resources used if you create a stack from this template. (qs-1ordscssj)",
     "Metadata": {
         "AWS::CloudFormation::Interface": {
             "ParameterGroups": [
@@ -61,10 +61,10 @@
                 "AdminPassword": {
                     "default": "Admin Password"
                 },
-                "BinVolumeSize" : {
+                "BinVolumeSize": {
                     "default": "EBS Volume size - Installation"
                 },
-                "CassandraVolumeSize" : {
+                "CassandraVolumeSize": {
                     "default": "EBS Volume size - Long Term Storage"
                 },
                 "DownloadUrl": {
@@ -73,10 +73,10 @@
                 "DynatraceInstanceType": {
                     "default": "Dynatrace Managed Instance Type"
                 },
-                "DynatraceInstanceTenancy" : {
+                "DynatraceInstanceTenancy": {
                     "default": "Dynatrace Managed Instance Tenancy"
                 },
-                "ElasticSearchVolumeSize" : {
+                "ElasticSearchVolumeSize": {
                     "default": "EBS Volume size - ElasticSearch"
                 },
                 "KeyPairName": {
@@ -85,7 +85,7 @@
                 "LicenseKey": {
                     "default": "Dynatrace Managed license key"
                 },
-                "MiscVolumeSize" : {
+                "MiscVolumeSize": {
                     "default": "EBS Volume size - Logs and updates"
                 },
                 "PrivateSubnetID": {
@@ -97,7 +97,7 @@
                 "QSS3KeyPrefix": {
                     "default": "Quick Start S3 Key Prefix"
                 },
-                "SrvVolumeSize" : {
+                "SrvVolumeSize": {
                     "default": "EBS Volume size - Transaction Storage"
                 },
                 "VPCID": {
@@ -107,22 +107,22 @@
         }
     },
     "Parameters": {
-       "AdminEmail": {
-         "Type": "String",
-         "Description": "Problem notifications may be sent to this address if there is an issue detected on the cluster."
-       },
-       "AdminPassword" : {
-         "Type": "String",
-         "NoEcho" : "true",
-         "Description": "Initial password for the 'admin' user needed for accessing the Dynatrace cluster console UI. Note: This password should be changed afterwards.",
-         "MinLength" : "8"
-       },
+        "AdminEmail": {
+            "Type": "String",
+            "Description": "Problem notifications may be sent to this address if there is an issue detected on the cluster."
+        },
+        "AdminPassword": {
+            "Type": "String",
+            "NoEcho": "true",
+            "Description": "Initial password for the 'admin' user needed for accessing the Dynatrace cluster console UI. Note: This password should be changed afterwards.",
+            "MinLength": "8"
+        },
         "LicenseKey": {
             "Description": "Please see the user guide for information on how to obtain a license key.",
             "Type": "String"
         },
         "DownloadUrl": {
-			"Description": "Please see the user guide for information on how to obtain the download URL.",
+            "Description": "Please see the user guide for information on how to obtain the download URL.",
             "Type": "String"
         },
         "DynatraceInstanceType": {
@@ -145,67 +145,66 @@
             "Description": "Amazon EC2 instance type for the Dynatrace nodes",
             "Type": "String"
         },
-        "DynatraceInstanceTenancy" : {
-            "AllowedValues": ["default", "dedicated"],
+        "DynatraceInstanceTenancy": {
+            "AllowedValues": [
+                "default",
+                "dedicated"
+            ],
             "Default": "default",
             "Description": "Choose whether Dynatrace nodes run on a dedicated or a multi-tenant host.",
             "Type": "String"
         },
-        "BinVolumeSize" : {
-           "Type" : "Number",
-           "Description" : "Dynatrace Managed For Binaries.",
-           "Default" : "50",
-           "MinValue" : "20",
-           "MaxValue" : "16384"
+        "BinVolumeSize": {
+            "Type": "Number",
+            "Description": "Dynatrace Managed For Binaries.",
+            "Default": "50",
+            "MinValue": "20",
+            "MaxValue": "16384"
         },
-        "MiscVolumeSize" : {
-            "Type" : "Number",
-            "Description" : "Dynatrace Managed Data Directory For Logs and Updates.",
-            "Default" : "100",
-            "MinValue" : "20",
-            "MaxValue" : "16384"
+        "MiscVolumeSize": {
+            "Type": "Number",
+            "Description": "Dynatrace Managed Data Directory For Logs and Updates.",
+            "Default": "100",
+            "MinValue": "20",
+            "MaxValue": "16384"
         },
-        "SrvVolumeSize" : {
-            "Type" : "Number",
-            "Description" : "Dynatrace Managed Data Directory For Transaction Storage.",
-            "Default" : "500",
-            "MinValue" : "20",
-            "MaxValue" : "16384"
+        "SrvVolumeSize": {
+            "Type": "Number",
+            "Description": "Dynatrace Managed Data Directory For Transaction Storage.",
+            "Default": "500",
+            "MinValue": "20",
+            "MaxValue": "16384"
         },
-        "CassandraVolumeSize" : {
-            "Type" : "Number",
-            "Description" : "Dynatrace Managed Cassandra Long-term Metrics Repository.",
-            "Default" : "1200",
-            "MinValue" : "50",
-            "MaxValue" : "16384"
+        "CassandraVolumeSize": {
+            "Type": "Number",
+            "Description": "Dynatrace Managed Cassandra Long-term Metrics Repository.",
+            "Default": "1200",
+            "MinValue": "50",
+            "MaxValue": "16384"
         },
-        "ElasticSearchVolumeSize" : {
-            "Type" : "Number",
-            "Description" : "Dynatrace Managed ElasticSearch Store.",
-            "Default" : "700",
-            "MinValue" : "20",
-            "MaxValue" : "16384"
+        "ElasticSearchVolumeSize": {
+            "Type": "Number",
+            "Description": "Dynatrace Managed ElasticSearch Store.",
+            "Default": "700",
+            "MinValue": "20",
+            "MaxValue": "16384"
         },
         "DynatraceNodeRole": {
-            "Type" : "String"
-        },
-        "DynatraceNodeProfile" : {
-            "Type" : "String"
-        },
-        "DynatraceNodeSecurityGroup" : {
-            "Type" : "AWS::EC2::SecurityGroup::Id"
-        },
-		"LicenseKey": {
-			"Description": "Dynatrace Managed license key",
             "Type": "String"
         },
-		"KeyPairName": {
-            "Description": "Enter a Public/private key pair. If you do not have one in this region, please create it before continuing",
+        "DynatraceNodeProfile": {
+            "Type": "String"
+        },
+        "DynatraceNodeSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup::Id"
+        },
+        "KeyPairName": {
+            "Description": "The name of an existing public/private key pair, which allows you to securely connect to your instance after it launches.",
             "Type": "AWS::EC2::KeyPair::KeyName"
         },
-        "NodeIndex" : {
+        "NodeIndex": {
             "Description": "Dynatrace Managed node index",
-            "Default" : "1",
+            "Default": "1",
             "Type": "String"
         },
         "PrivateSubnetID": {
@@ -226,13 +225,13 @@
             "Description": "S3 key prefix for the Quick Start assets. Quick Start key prefix can include numbers, lowercase letters, uppercase letters, hyphens (-), and forward slash (/).",
             "Type": "String"
         },
-        "SeedIpName" : {
-            "Description" : "SSM parameter with seed IP address",
-            "Type" : "AWS::SSM::Parameter::Name"
+        "SeedIpName": {
+            "Description": "SSM parameter with seed IP address",
+            "Type": "AWS::SSM::Parameter::Name"
         },
-        "SeedTokenName" : {
-            "Description" : "SSM parameter with seed API token",
-            "Type" : "AWS::SSM::Parameter::Name"
+        "SeedTokenName": {
+            "Description": "SSM parameter with seed API token",
+            "Type": "AWS::SSM::Parameter::Name"
         },
         "VPCID": {
             "Description": "ID of the VPC (e.g., vpc-0343606e)",
@@ -264,57 +263,56 @@
     "Mappings": {
         "AWSAMIRegionMap": {
             "AMI": {
-                "AMZNLINUXHVM": "amzn-ami-hvm-2017.09.1.20180115-x86_64-gp2"
+                "AMZNLINUXHVM": "amzn-ami-hvm-2018.03.0.20180811-x86_64-gp2"
             },
             "ap-northeast-1": {
-                "AMZNLINUXHVM": "ami-ceafcba8"
+                "AMZNLINUXHVM": "ami-06cd52961ce9f0d85"
             },
             "ap-northeast-2": {
-                "AMZNLINUXHVM": "ami-863090e8"
+                "AMZNLINUXHVM": "ami-0a10b2721688ce9d2"
             },
             "ap-south-1": {
-                "AMZNLINUXHVM": "ami-531a4c3c"
+                "AMZNLINUXHVM": "ami-0912f71e06545ad88"
             },
             "ap-southeast-1": {
-                "AMZNLINUXHVM": "ami-68097514"
+                "AMZNLINUXHVM": "ami-08569b978cc4dfa10"
             },
             "ap-southeast-2": {
-                "AMZNLINUXHVM": "ami-942dd1f6"
+                "AMZNLINUXHVM": "ami-09b42976632b27e9b"
             },
             "ca-central-1": {
-                "AMZNLINUXHVM": "ami-a954d1cd"
+                "AMZNLINUXHVM": "ami-0b18956f"
             },
             "eu-central-1": {
-                "AMZNLINUXHVM": "ami-5652ce39"
+                "AMZNLINUXHVM": "ami-0233214e13e500f77"
             },
             "eu-west-1": {
-                "AMZNLINUXHVM": "ami-d834aba1"
+                "AMZNLINUXHVM": "ami-047bb4163c506cd98"
             },
             "eu-west-2": {
-                "AMZNLINUXHVM": "ami-403e2524"
+                "AMZNLINUXHVM": "ami-f976839e"
             },
             "eu-west-3": {
-                "AMZNLINUXHVM": "ami-8ee056f3"
+                "AMZNLINUXHVM": "ami-0ebc281c20e89ba4b"
             },
             "sa-east-1": {
-                "AMZNLINUXHVM": "ami-84175ae8"
+                "AMZNLINUXHVM": "ami-07b14488da8ea02a0"
             },
             "us-east-1": {
-                "AMZNLINUXHVM": "ami-97785bed"
+                "AMZNLINUXHVM": "ami-0ff8a91507f77f867"
             },
             "us-east-2": {
-                "AMZNLINUXHVM": "ami-f63b1193"
+                "AMZNLINUXHVM": "ami-0b59bfac6be064b78"
             },
             "us-west-1": {
-                "AMZNLINUXHVM": "ami-824c4ee2"
+                "AMZNLINUXHVM": "ami-0bdb828fd58c52235"
             },
             "us-west-2": {
-                "AMZNLINUXHVM": "ami-f2d3638a"
+                "AMZNLINUXHVM": "ami-a0cfeed8"
             }
         }
     },
     "Conditions": {
-
         "GovCloudCondition": {
             "Fn::Equals": [
                 {
@@ -323,9 +321,7 @@
                 "us-gov-west-1"
             ]
         }
-
     },
-
     "Resources": {
         "DynatraceNode": {
             "Type": "AWS::EC2::Instance",
@@ -361,7 +357,10 @@
                                         }
                                     ]
                                 },
-                                "mode": "000550", "owner": "root","group": "root", "authentication": "S3AccessCreds"
+                                "mode": "000550",
+                                "owner": "root",
+                                "group": "root",
+                                "authentication": "S3AccessCreds"
                             },
                             "/tmp/download_installer.sh": {
                                 "source": {
@@ -378,7 +377,10 @@
                                         }
                                     ]
                                 },
-                                "mode": "000550", "owner": "root","group": "root", "authentication": "S3AccessCreds"
+                                "mode": "000550",
+                                "owner": "root",
+                                "group": "root",
+                                "authentication": "S3AccessCreds"
                             },
                             "/tmp/install.sh": {
                                 "source": {
@@ -395,7 +397,10 @@
                                         }
                                     ]
                                 },
-                                "mode": "000550", "owner": "root","group": "root", "authentication": "S3AccessCreds"
+                                "mode": "000550",
+                                "owner": "root",
+                                "group": "root",
+                                "authentication": "S3AccessCreds"
                             },
                             "/tmp/uninstall.sh": {
                                 "source": {
@@ -412,47 +417,53 @@
                                         }
                                     ]
                                 },
-                                "mode": "000550", "owner": "root","group": "root", "authentication": "S3AccessCreds"
+                                "mode": "000550",
+                                "owner": "root",
+                                "group": "root",
+                                "authentication": "S3AccessCreds"
                             },
                             "/tmp/params": {
                                 "content": {
                                     "Fn::Join": [
                                         "",
-                                    [
-                                        "DownloadUrl=",
-                                        {
-                                            "Ref": "DownloadUrl"
-                                        },
-                                        "\n",
-                                        "LicenseKey=",
-                                        {
-                                            "Ref": "LicenseKey"
-                                        },
-                                        "\n",
-                                        "AdminEmail=",
-                                        {
-                                            "Ref": "AdminEmail"
-                                        },
-                                        "\n",
-                                        "AdminPassword=",
-                                        {
-                                            "Ref": "AdminPassword"
-                                        },
-                                        "\n",
-                                        "SeedIpName=",
-                                        {
-                                            "Ref": "SeedIpName"
-                                        },
-                                        "\n",
-                                        "SeedTokenName=",
-                                        {
-                                            "Ref": "SeedTokenName"
-                                        },
-                                        "\n"
+                                        [
+                                            "DownloadUrl=",
+                                            {
+                                                "Ref": "DownloadUrl"
+                                            },
+                                            "\n",
+                                            "LicenseKey=",
+                                            {
+                                                "Ref": "LicenseKey"
+                                            },
+                                            "\n",
+                                            "AdminEmail=",
+                                            {
+                                                "Ref": "AdminEmail"
+                                            },
+                                            "\n",
+                                            "AdminPassword=",
+                                            {
+                                                "Ref": "AdminPassword"
+                                            },
+                                            "\n",
+                                            "SeedIpName=",
+                                            {
+                                                "Ref": "SeedIpName"
+                                            },
+                                            "\n",
+                                            "SeedTokenName=",
+                                            {
+                                                "Ref": "SeedTokenName"
+                                            },
+                                            "\n"
+                                        ]
                                     ]
-                                ]
-                            },
-                                "mode": "000550", "owner": "root","group": "root", "authentication": "S3AccessCreds"
+                                },
+                                "mode": "000550",
+                                "owner": "root",
+                                "group": "root",
+                                "authentication": "S3AccessCreds"
                             }
                         },
                         "commands": {
@@ -473,57 +484,57 @@
                 }
             },
             "Properties": {
-                "BlockDeviceMappings" : [
+                "BlockDeviceMappings": [
                     {
-                        "DeviceName" : "/dev/xvda",
-                        "Ebs" : {
-                            "VolumeSize" : "20",
-                            "VolumeType" : "gp2"
+                        "DeviceName": "/dev/xvda",
+                        "Ebs": {
+                            "VolumeSize": "20",
+                            "VolumeType": "gp2"
                         }
                     },
                     {
-                        "DeviceName" : "/dev/xvdb",
-                        "Ebs" : {
-                            "VolumeSize" : {
+                        "DeviceName": "/dev/xvdb",
+                        "Ebs": {
+                            "VolumeSize": {
                                 "Ref": "BinVolumeSize"
                             },
-                            "VolumeType" : "gp2"
+                            "VolumeType": "gp2"
                         }
                     },
                     {
-                        "DeviceName" : "/dev/xvdc",
-                        "Ebs" : {
-                            "VolumeSize" : {
+                        "DeviceName": "/dev/xvdc",
+                        "Ebs": {
+                            "VolumeSize": {
                                 "Ref": "MiscVolumeSize"
                             },
-                            "VolumeType" : "gp2"
+                            "VolumeType": "gp2"
                         }
                     },
                     {
-                        "DeviceName" : "/dev/xvdd",
-                        "Ebs" : {
-                            "VolumeSize" : {
+                        "DeviceName": "/dev/xvdd",
+                        "Ebs": {
+                            "VolumeSize": {
                                 "Ref": "SrvVolumeSize"
                             },
-                            "VolumeType" : "gp2"
+                            "VolumeType": "gp2"
                         }
                     },
                     {
-                        "DeviceName" : "/dev/xvde",
-                        "Ebs" : {
-                            "VolumeSize" : {
+                        "DeviceName": "/dev/xvde",
+                        "Ebs": {
+                            "VolumeSize": {
                                 "Ref": "CassandraVolumeSize"
                             },
-                            "VolumeType" : "gp2"
+                            "VolumeType": "gp2"
                         }
                     },
                     {
-                        "DeviceName" : "/dev/xvdf",
-                        "Ebs" : {
-                            "VolumeSize" : {
+                        "DeviceName": "/dev/xvdf",
+                        "Ebs": {
+                            "VolumeSize": {
                                 "Ref": "ElasticSearchVolumeSize"
                             },
-                            "VolumeType" : "gp2"
+                            "VolumeType": "gp2"
                         }
                     }
                 ],
@@ -547,11 +558,13 @@
                         "Ref": "DynatraceNodeSecurityGroup"
                     }
                 ],
-                "SubnetId" : { "Ref": "PrivateSubnetID" },
+                "SubnetId": {
+                    "Ref": "PrivateSubnetID"
+                },
                 "InstanceType": {
                     "Ref": "DynatraceInstanceType"
                 },
-                "UserData" : {
+                "UserData": {
                     "Fn::Base64": {
                         "Fn::Join": [
                             "",
@@ -587,22 +600,33 @@
                 "Tags": [
                     {
                         "Key": "Name",
-                        "Value": { "Fn::Join": [ "", [ "DynatraceNode", { "Ref" : "NodeIndex" }]] }
+                        "Value": {
+                            "Fn::Join": [
+                                "",
+                                [
+                                    "DynatraceNode",
+                                    {
+                                        "Ref": "NodeIndex"
+                                    }
+                                ]
+                            ]
+                        }
                     },
                     {
                         "Key": "Environment",
                         "Value": "AWS Quick Start"
                     }
                 ],
-                "Tenancy" : { "Ref" : "DynatraceInstanceTenancy" }
+                "Tenancy": {
+                    "Ref": "DynatraceInstanceTenancy"
+                }
             },
-            "CreationPolicy" : {
-                "ResourceSignal" : {
-                    "Timeout" : "PT30M"
+            "CreationPolicy": {
+                "ResourceSignal": {
+                    "Timeout": "PT30M"
                 }
             }
         },
-
         "RecoveryAlarm": {
             "Type": "AWS::CloudWatch::Alarm",
             "Properties": {
@@ -639,7 +663,6 @@
             }
         }
     },
-
     "Outputs": {
         "DynatraceNode": {
             "Description": "Dynatrace EC2 Instance",
@@ -647,6 +670,5 @@
                 "Ref": "DynatraceNode"
             }
         }
-
     }
 }
